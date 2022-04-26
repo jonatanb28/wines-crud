@@ -18,10 +18,10 @@ const CreateProduct = () => {
     const [price, setPrice] = useState('');
 
 
-    const [types, setTypes] = useState([])
-    const getAllTypes = async()=>{
-        const res = await axios.get(URI);
-        setTypes(res.data)
+    const [data, setData] = useState([])
+    const getAllData = async()=>{
+        const res = await axios.get(URI+'/data');
+        setData(res.data)
     }
 
     const store = async(event) => {

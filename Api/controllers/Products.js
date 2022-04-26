@@ -27,10 +27,12 @@ export const getAllProducts = async (req, res)=>{
     }
 }
 
-export const getAllTypes = async (req, res)=>{
+export const getAllData = async (req, res)=>{
     try {
         const product = await TypesModel.findAll()
-        res.json(product)
+        const strain = await StrainModel.findAll()
+        const brand = await BrandModel.findAll()
+        res.json({product, strain, brand})
     } catch (error) {
         res.json({message: error.message})
     }
