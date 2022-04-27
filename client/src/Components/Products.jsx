@@ -4,7 +4,7 @@ import axios from 'axios';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link, useParams} from 'react-router-dom';
 import './Card.css'
-import { deleteProduct, getAllProducts, getAllTypes  } from '../Redux/Actions/index.js';
+import { deleteProduct, getAllProducts } from '../Redux/Actions/index.js';
 const URI = 'http://localhost:8000/wines'
 
 
