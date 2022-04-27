@@ -27,12 +27,28 @@ export const getAllProducts = async (req, res)=>{
     }
 }
 
-export const getAllData = async (req, res)=>{
+export const getAllTypes = async (req, res)=>{
     try {
-        const product = await TypesModel.findAll()
+        const type = await TypesModel.findAll()
+        res.json({type})
+    } catch (error) {
+        res.json({message: error.message})
+    }
+}
+
+export const getAllStrains = async (req, res)=>{
+    try {
         const strain = await StrainModel.findAll()
+        res.json(strain)
+    } catch (error) {
+        res.json({message: error.message})
+    }
+}
+
+export const getAllBrands = async (req, res)=>{
+    try {
         const brand = await BrandModel.findAll()
-        res.json({product, strain, brand})
+        res.json(brand)
     } catch (error) {
         res.json({message: error.message})
     }
@@ -94,14 +110,11 @@ export const updateProduct = async (req, res) =>{
 
 export const deleteProduct = async (req, res) => {
     try {
-        await ProductModel.destroy({
-            where:{
-                id: req.params.id
-            }
-        })
-        res.json({
-            'message':'Producto eliminado'
-        })
+        const {id} = req.params;
+        // const productId = Number(id)
+        res.json(await ProductModel.destroy({
+             where: {id} 
+        }))
     } catch (error) {
         res.json({message: error.message})
     }

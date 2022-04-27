@@ -8,7 +8,9 @@ const BrandModel = db.define('brand', {
     }
 },
 {
-    tableName: 'brand'
+    tableName: 'brand',
+    updatedAt: false,
+    createdAt: false
 });
 
 export default BrandModel;

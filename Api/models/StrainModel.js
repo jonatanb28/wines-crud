@@ -5,7 +5,9 @@ const StrainModel = db.define('strain', {
     name: {type: DataTypes.STRING, allowNull: false}
 },
 {
-    tableName: 'strain'
+    tableName: 'strain',
+    updatedAt: false,
+    createdAt: false
 });
 
 export default StrainModel;

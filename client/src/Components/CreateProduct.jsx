@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import React from 'react'
 
@@ -19,10 +19,15 @@ const CreateProduct = () => {
 
 
     const [data, setData] = useState([])
+    console.log(data)
     const getAllData = async()=>{
         const res = await axios.get(URI+'/data');
         setData(res.data)
     }
+
+    useEffect(() => {
+        getAllData()
+    })
 
     const store = async(event) => {
         event.preventDefault();
