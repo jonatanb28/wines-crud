@@ -20,14 +20,9 @@ const Products = () => {
     },[dispatch, destroy])
  
 
-    useEffect(()=>{
-       dispatch(getAllProducts()) 
-    })
-
     function handleDelete(id){
         dispatch(deleteProduct(id))
         setDestroy(id)
-        dispatch(getAllProducts())
     }
     
     if(copyProducts[0] === ''){
