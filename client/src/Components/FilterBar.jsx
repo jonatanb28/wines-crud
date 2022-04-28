@@ -26,6 +26,10 @@ function FilterBar() {
         dispatch(getFilterProducts())
     }, [dispatch, filter])
 
+    function handleDeleteFilter(){
+        dispatch(getAllProducts())
+    }
+
   return (
     <div>
 
@@ -81,7 +85,7 @@ function FilterBar() {
                 
             </div>
 
-            <button className="btn btn-dark mt-2 mb-2" onClick={getAllProducts()}>Limpiar Filtros</button>
+            <button className="btn btn-dark mt-2 mb-2" onClick={handleDeleteFilter}>Limpiar Filtros</button>
 
     </div>
   )
