@@ -59,7 +59,6 @@ export function getAllBrands(){
 
 export function deleteProduct(id){
     return async function(dispatch){
-        console.log(id)
         await axios.delete(`/${id}`)
         return dispatch({
             type: 'deleteProduct',
