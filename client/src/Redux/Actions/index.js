@@ -1,5 +1,5 @@
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:8000/wines'
+axios.defaults.baseURL = 'https://crud-wines-mysql-react.herokuapp.com/wines'
 
 export function getAllProducts() {
     return async function(dispatch){
