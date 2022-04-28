@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllBrands, getAllStrains, getAllTypes, getFilterProducts, setFilterProducts } from '../Redux/Actions';
 import './inputs.css'

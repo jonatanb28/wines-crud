@@ -44,11 +44,10 @@ function reducer (state = initialState, {type, payload}) {
             }}
         case 'getFilterProducts':
             let Products = state.allProducts;
-            console.log(state.filters.type)
             if (state.filters.type) {
                
               const filtered = [
-                ...Products.filter((product)=>product.type.name.includes( state.filters.type))
+                ...Products.filter((product)=>product.type.name === state.filters.type)
               ];
       
               Products = filtered;
