@@ -13,15 +13,14 @@ const Products = () => {
     const products = useSelector(state => state.allProducts);
     const copyProducts = useSelector(state => state.copyProducts);
 
-    const [destroy, setDestroy] = useState([])
+    // const [destroy, setDestroy] = useState([])
 
     useEffect(()=>{
        dispatch(getAllProducts()) 
-    },[dispatch, destroy])
+    },[dispatch])
 
     function handleDelete(id){
-        dispatch(deleteProduct(id));
-        setDestroy(id)
+        dispatch(deleteProduct(id))
         dispatch(getAllProducts())
     }
     
