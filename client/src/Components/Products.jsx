@@ -13,11 +13,11 @@ const Products = () => {
     const products = useSelector(state => state.allProducts);
     const copyProducts = useSelector(state => state.copyProducts);
 
-   
+    
 
     useEffect(()=>{
        dispatch(getAllProducts()) 
-    },[dispatch, products])
+    },[dispatch])
 
     function handleDelete(id){
         dispatch(deleteProduct(id));
