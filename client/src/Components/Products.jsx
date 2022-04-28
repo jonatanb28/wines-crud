@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 import './Card.css'
-import {  getAllProducts } from '../Redux/Actions/index.js';
+import { deleteProduct, getAllProducts } from '../Redux/Actions/index.js';
 import FilterBar from './FilterBar';
 
 
@@ -13,13 +13,15 @@ const Products = () => {
     const products = useSelector(state => state.allProducts);
     const copyProducts = useSelector(state => state.copyProducts);
 
-    
+   
 
     useEffect(()=>{
        dispatch(getAllProducts()) 
     },[dispatch])
 
-    
+    function handleDelete(id){
+        dispatch(deleteProduct(id));
+    }
     
     if(copyProducts[0] === ''){
         return (
@@ -56,7 +58,7 @@ const Products = () => {
     
                             <div className='btns'>
                                 <Link to={`/edit/${product.id}`}><button className='btn-update'>Editar</button></Link>
-                                
+                                <button onClick={handleDelete(product.id)} className='btn-delete'>Eliminar</button>
                             </div>
                         </div>
                     ))}
@@ -123,6 +125,7 @@ const Products = () => {
     
                             <div className='btns'>
                                 <Link to={`/edit/${product.id}`}><button className='btn-update'>Editar</button></Link>
+                                <button onClick={()=>handleDelete(product.id)} className='btn-delete'>Eliminar</button>
                             </div>
                         </div>
                     ))}
