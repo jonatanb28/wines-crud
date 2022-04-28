@@ -22,7 +22,7 @@ const Products = () => {
     function handleDelete(id){
         dispatch(deleteProduct(id));
         setDestroy(id)
-        getAllProducts()
+        dispatch(getAllProducts())
     }
     
     if(copyProducts[0] === ''){
