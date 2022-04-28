@@ -1,13 +1,14 @@
 import React, {useEffect} from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getProduct } from '../../Redux/Actions/index.js';
+import { deleteProduct, getProduct } from '../../Redux/Actions/index.js';
 import './Details.css'
 
 const Details = () => {
 
   const {id} = useParams();
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const productDetail = useSelector((state) => state.details)
   console.log(productDetail)
@@ -18,6 +19,11 @@ const Details = () => {
         dispatch(getProduct('clear'))
     }) 
   }, [dispatch, id]);
+
+  function handleDelete(id){
+    dispatch(deleteProduct(id));
+    navigate('/')
+  }
 
   return(
     <div>
@@ -39,7 +45,7 @@ const Details = () => {
                           <h3 className="title"><span>Precio: </span>${product.price.toLocaleString("es-AR")}</h3>
                           <h3 className="title"><span>Variedad: </span>{product.strain.name}</h3>
                           <h3 className="title"><span>Características: </span>{product.description}</h3>
-
+                          <button onClick={handleDelete(product.id)} className='btn-delete'>Eliminar</button>
                           <Link to='/'><button className="my_button">Volver</button></Link>
                       </div>
                   </div>
