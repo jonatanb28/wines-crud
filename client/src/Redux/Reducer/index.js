@@ -49,7 +49,7 @@ function reducer (state = initialState, {type, payload}) {
               const filtered = [
                 ...Products.filter(
                     product=>{
-                        return product.type.name.includes( state.filters.type);
+                        return product.type.name.includes(state.filters.type);
                     }
                 )
               ];
