@@ -1,0 +1,152 @@
+
+.body{
+    background: #ffffff; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 130vh;
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.h1{
+    text-align: center;
+    color: #383838 ;
+    text-shadow: 0 10px 25px rgba(5, 4, 8, 0.397);
+    font-size: 50px;
+    margin-bottom: 25px;
+}
+
+
+.form{
+    background-color: whitesmoke;
+    padding: 30px 60px;
+    border-radius: 20px;
+    box-shadow: 0 15px 25px rgba(123, 123, 123, 0.701);
+    align-items: center;
+    text-align: center;    
+}
+
+
+.select{
+    margin-left: 10px;
+    border: none ;
+    padding:8px;
+    border-radius:10px ;
+    background-color: none;
+    color: #383838;
+    font-size: 18px;
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+
+.option{
+    background-color:#383838;
+    border: none;
+    color: white;
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    font-family: 'Poppins', sans-serif;    
+}
+
+.div{
+    margin: 20px;
+}
+
+
+.input{
+    margin-left: 10px;
+    background-color: none;
+    border: none;
+    font-size: 18px;
+    box-shadow: 0 2px 7px rgba(5, 4, 8, 0.397);
+    padding: 8px;
+    border-radius: 10px;
+
+}
+
+.textarea{
+    width: 600px;
+    height: 200px;
+    border: none;
+    border-radius: 10px;
+}
+
+.textarea:focus{
+    border: none;
+}
+
+.link-create-product{
+    text-decoration: none;
+    font-size: 20px;
+    color: #383838;
+}
+
+.link-create-product:hover{
+    color: #797979;
+    text-shadow: #383838;
+}
+
+.label{
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+
+.my_button{
+
+    background: #ECE9E6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding: 10px 20px;
+    color: rgba(68, 68, 69, 1.00);
+    letter-spacing: 3px;
+    font-size: 18px;
+    transition: 0.2s;
+    border-radius: 10px;
+    border: none;
+    left: 70px;
+    cursor: pointer;
+    box-shadow: 0 10px 15px rgba(123, 123, 123, 0.397);
+}
+
+
+.my_button:hover{
+color: black;
+box-shadow: 0 10px 15px rgba(5, 4, 8, 0.397);
+border: none;
+cursor: pointer;
+}
+
+
+
+.create_button{
+    margin: 45px 0 20px 0;
+    background-color: #EDEDED;
+    padding: 5px 20px;
+    color: grey;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.2s;
+    border-radius: 10px;
+    border: none;
+    left: 70px;
+    box-shadow: 0 5px 10px rgba(110, 110, 110, 0.397);
+}
+
+
+.create_button:hover{
+    color: black;
+    transition: 0.8s;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(5, 4, 8, 0.397);
+}
+
+.h4{
+    font-size: 18px;
+}

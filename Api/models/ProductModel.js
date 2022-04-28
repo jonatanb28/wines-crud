@@ -9,6 +9,10 @@ const ProductModel = db.define('wines', {
     description: {type: DataTypes.STRING, allowNull: false},
     price: {type: DataTypes.INTEGER, allowNull: false},
     image:{type: DataTypes.STRING, allowNull: false}
+},
+{
+    updatedAt: false,
+    createdAt: false
 })
 
 ProductModel.belongsTo(TypesModel)

@@ -7,8 +7,8 @@ router.get('/', getAllProducts);
 router.get('/types', getAllTypes)
 router.get('/brands', getAllBrands)
 router.get('/strains', getAllStrains)
-router.get('/:id', getProduct);
 router.post('/', createProduct);
+router.get('/:id', getProduct);
 router.put('/:id', updateProduct);
 router.delete('/:id', deleteProduct);
 

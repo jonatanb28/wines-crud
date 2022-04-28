@@ -1,9 +1,9 @@
 import axios from 'axios';
-const URI = 'http://localhost:8000/wines'
+axios.defaults.baseURL = 'http://localhost:8000/wines'
 
 export function getAllProducts() {
     return async function(dispatch){
-        const res = await axios.get(URI);
+        const res = await axios.get('/');
         return dispatch({
             type: 'getAllProducts',
             payload: res.data
@@ -11,9 +11,25 @@ export function getAllProducts() {
     }
 }
 
+export function getProduct(id){
+    return async function(dispatch){ 
+        if(id === 'clear'){
+            dispatch({type: 'getProduct',
+            payload: 'clear'})
+        } else{
+            let json = await axios (`/${id}`)
+            return dispatch({
+            type: 'getProduct',
+            payload: json.data
+            })
+        }
+    }
+     
+}
+
 export function getAllTypes(){
     return async function (dispatch){
-        let json = await axios (URI + '/types')
+        let json = await axios ('/types')
         return dispatch({
             type: 'getAllTypes',
             payload: json.data
@@ -23,9 +39,9 @@ export function getAllTypes(){
 
 export function getAllStrains(){
     return async function (dispatch){
-        let json = await axios (URI + '/strains')
+        let json = await axios ('/strains')
         return dispatch({
-            type: 'getAllTypes',
+            type: 'getAllStrains',
             payload: json.data
         })
     }
@@ -33,9 +49,9 @@ export function getAllStrains(){
 
 export function getAllBrands(){
     return async function (dispatch){
-        let json = await axios (URI + '/brands')
+        let json = await axios ('/brands')
         return dispatch({
-            type: 'getAllTypes',
+            type: 'getAllBrands',
             payload: json.data
         })
     }
@@ -44,9 +60,57 @@ export function getAllBrands(){
 export function deleteProduct(id){
     return async function(dispatch){
         console.log(id)
-        await axios.delete(`http://localhost:8000/wines/${id}`)
+        await axios.delete(`/${id}`)
         return dispatch({
             type: 'deleteProduct',
         })
+    }
+}
+
+export function createProduct(payload){
+    return async function(dispatch){
+        const product = await axios.post('/',payload)
+        return dispatch({
+            type: 'createProduct',
+            payload: product
+        })
+    }
+}
+
+export function getProductByName(name){
+    return async function(dispatch){
+        console.log(name)
+        let json = await axios.get('?name=' + name)
+        console.log(json.data)
+        return dispatch({
+            type: 'getProductByName',
+            payload: json
+        })
+    }
+}
+
+export function updateProduct(id){
+    return async function(dispatch){
+        let json = await axios.put(`/${id}`)
+        return dispatch({
+            type: updateProduct,
+            payload: json
+        })
+    }
+}
+
+export function setFilterProducts(filter, value){
+    return {
+        type: 'setFilterProducts',
+        payload: {
+            filter,
+            value
+        }
+    }
+}
+
+export function getFilterProducts(){
+    return {
+        type: 'getFilterProducts'
     }
 }

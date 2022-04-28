@@ -4,6 +4,7 @@ import StrainModel from "../models/StrainModel.js";
 import TypesModel from "../models/TypesModel.js";
 
 export const getAllProducts = async (req, res)=>{
+    
     try {
         const product = await ProductModel.findAll({
             include:[
@@ -21,16 +22,26 @@ export const getAllProducts = async (req, res)=>{
                 } 
             ]
         })
+        const {name} = req.query;
+        if(name){
+            const totalProducts = product;
+            const productName = totalProducts.filter(ele=>ele.name.toLowerCase().includes(name.toLowerCase()))
+        
+            if(productName){
+                return res.status(200).send(productName);
+            } return res.send({error: 'Product not found'})
+        } 
         res.json(product)
     } catch (error) {
         res.json({message: error.message})
     }
+
 }
 
 export const getAllTypes = async (req, res)=>{
     try {
         const type = await TypesModel.findAll()
-        res.json({type})
+        res.json(type)
     } catch (error) {
         res.json({message: error.message})
     }
@@ -50,7 +61,7 @@ export const getAllBrands = async (req, res)=>{
         const brand = await BrandModel.findAll()
         res.json(brand)
     } catch (error) {
-        res.json({message: error.message})
+        res.json({message: error.message} )
     }
 }
 
@@ -75,15 +86,20 @@ export const getProduct = async (req, res) => {
                 id: req.params.id
             }
         })
-        res.json(product[0])
+        res.json(product)
     } catch (error) {
         res.json({message: error.message})
     }
 }
 
 export const createProduct = async (req, res) => {
+
+    const {name, image, price, typeId, strainId, brandId, description} = req.body;
     try {
-        const product = await ProductModel.create(req.body)
+        const product = await ProductModel.create({
+            name, image, price, description, typeId, strainId, brandId
+        });
+
         res.status(200).json({
             'message':'Producto creado',
             product
@@ -111,7 +127,6 @@ export const updateProduct = async (req, res) =>{
 export const deleteProduct = async (req, res) => {
     try {
         const {id} = req.params;
-        // const productId = Number(id)
         res.json(await ProductModel.destroy({
              where: {id} 
         }))

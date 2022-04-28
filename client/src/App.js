@@ -4,7 +4,7 @@ import './App.css';
 import CreateProduct from './Components/CreateProduct';
 import EditProduct from './Components/EditProduct';
 import Products from './Components/Products.jsx';
-import Details from './Components/Details.jsx';
+import Details from './Components/Details/Details.jsx';
 
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
             <Route path='/' element={<Products/>} />
             <Route path='/create' element={<CreateProduct/>} />
             <Route path='/edit/:id' element={<EditProduct/>} />
-            {/* <Route path='/details/:id' element={<Details/>} /> */}
+            <Route path='/:id' element={<Details/>} />
           </Routes>
         </BrowserRouter>
     </div>
