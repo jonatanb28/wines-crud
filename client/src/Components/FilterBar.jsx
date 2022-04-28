@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllBrands, getAllStrains, getAllTypes, getFilterProducts, setFilterProducts } from '../Redux/Actions';
+import { getAllBrands, getAllStrains, getAllTypes, getFilterProducts, setFilterProducts, getAllProducts } from '../Redux/Actions';
 import './inputs.css'
 
 function FilterBar() {
@@ -80,6 +80,8 @@ function FilterBar() {
                 </select>
                 
             </div>
+
+            <button className="btn btn-dark mt-2 mb-2" onClick={getAllProducts()}>Limpiar Filtros</button>
 
     </div>
   )
