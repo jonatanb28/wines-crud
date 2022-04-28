@@ -22,7 +22,7 @@ function reducer (state = initialState, {type, payload}) {
         case 'getProductByName':
             return{...state, allProducts:payload}
         case 'deleteProduct':
-            return{...state, deletedProducts:payload}
+            return{...state}
         case 'getAllTypes':
             return{...state, types: payload}
         case 'getAllStrains':
