@@ -89,9 +89,9 @@ export function getProductByName(name){
     }
 }
 
-export function updateProduct(id){
+export function updateProduct(id, payload){
     return async function(dispatch){
-        let json = await axios.put(`/${id}`)
+        let json = await axios.put(`/${id}`, payload)
         return dispatch({
             type: updateProduct,
             payload: json

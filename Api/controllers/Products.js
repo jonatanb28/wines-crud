@@ -66,6 +66,7 @@ export const getAllBrands = async (req, res)=>{
 }
 
 export const getProduct = async (req, res) => {
+    
     try {
         const product = await ProductModel.findAll({
             include:[
@@ -110,16 +111,18 @@ export const createProduct = async (req, res) => {
 }
 
 export const updateProduct = async (req, res) =>{
+    console.log(req.method)
     try {
-        await ProductModel.update(req.body, {
-            where:{
-                id: req.params.id
-            }
-        })
+        const {id} = req.params
+        const {name, description, price, strainId, typeId, brandId} = req.body;
+        await ProductModel.update(
+            { name, description, price, strainId, typeId, brandId },
+            { where: { id } }
+        )
         res.json({
             'message':'Producto actualizado'
         })
-    } catch (error) {
+    } catch (error ) {
         res.status(500).json({message: error.message})
     }
 }
