@@ -59,7 +59,7 @@ const Products = () => {
     
                             <div className='btns'>
                                 <Link to={`/edit/${product.id}`}><button className='btn-update'>Editar</button></Link>
-                                <button onClick={()=>handleDelete(product.id)} className='btn-delete'>Eliminar</button>
+                                <button onClick={handleDelete(product.id)} className='btn-delete'>Eliminar</button>
                             </div>
                         </div>
                     ))}
