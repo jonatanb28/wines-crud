@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
+import {  useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 import './Card.css'
@@ -12,16 +12,15 @@ const Products = () => {
     const dispatch = useDispatch()
     const products = useSelector(state => state.allProducts);
     const copyProducts = useSelector(state => state.copyProducts);
+    const deletedProducts = useSelector(state => state.deletedProducts);
 
-    const [destroy, setDestroy] = useState()
 
     useEffect(()=>{
        dispatch(getAllProducts()) 
-    },[dispatch, destroy])
+    },[dispatch, deletedProducts])
 
     function handleDelete(id){
         dispatch(deleteProduct(id));
-        setDestroy(id)
     }
     
     if(copyProducts[0] === ''){
