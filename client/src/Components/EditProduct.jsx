@@ -67,7 +67,7 @@ const Details = () => {
                   <div key={index} className="details_container">
                       <div className="header">
                           <img className="img" src={product.image} alt='img'></img>
-                          <textarea placeholder={productDetail[0].name} value={wine.name} name='name' onChange={handleChange} />
+                          <textarea className="textarea" placeholder={productDetail[0].name} value={wine.name} name='name' onChange={handleChange} />
                          
                       </div>
 

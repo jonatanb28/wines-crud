@@ -59,6 +59,22 @@
     cursor: pointer;
 }
 
+.my_button-c{
+    margin-top: 2rem;
+    background: #ECE9E6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding: 15px 25px;
+    color: rgba(68, 68, 69, 1.00);
+    letter-spacing: 2px;
+    font-size: 30px;
+    transition: 0.2s;
+    border-radius: 10px;
+    border: none;
+    left: 70px;
+    cursor: pointer;
+}
+
 
 .my_button:hover{
 color: black;
