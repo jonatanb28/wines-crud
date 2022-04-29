@@ -14,11 +14,11 @@ const Products = () => {
     const products = useSelector(state => state.allProducts);
     const copyProducts = useSelector(state => state.copyProducts);
 
-  
+    const [destroy, setDestroy] = useState([])
 
     useEffect(()=>{
         dispatch(getAllProducts()) 
-    },[dispatch, copyProducts])
+    },[dispatch, destroy])
  
     function handleDelete(id){
         
@@ -33,8 +33,8 @@ const Products = () => {
               swal(`¡Producto eliminado!`, {
                 icon: "success",
               });
+              setDestroy(id)
               dispatch(deleteProduct(id));
-             
               dispatch(getAllProducts());
             } else {
               swal(`¡Sigue navegando entre nuestros vinos!`);
@@ -78,7 +78,7 @@ const Products = () => {
     
                             <div className='btns'>
                                 <Link to={`/edit/${product.id}`}><button className='btn-update'>Editar</button></Link>
-                                <button onClick={handleDelete(product.id, product.name)} className='btn-delete'>Eliminar</button>
+                                <button onClick={handleDelete(product.id)} className='btn-delete'>Eliminar</button>
                             </div>
                         </div>
                     ))}

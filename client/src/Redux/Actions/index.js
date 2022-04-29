@@ -63,7 +63,6 @@ export function deleteProduct(id){
         await axios.delete(`/${id}`)
         return dispatch({
             type: 'deleteProduct',
-            payload: id
         })
     }
 }
