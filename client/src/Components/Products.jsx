@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 import './Card.css'
 import { deleteProduct, getAllProducts } from '../Redux/Actions/index.js';
 import FilterBar from './FilterBar';
+import swal from 'sweetalert';
 
 
 const Products = () => {
@@ -19,11 +20,27 @@ const Products = () => {
         dispatch(getAllProducts()) 
     },[dispatch, destroy])
  
-
     function handleDelete(id){
-        dispatch(deleteProduct(id))
-        setDestroy(id)
-        dispatch(getAllProducts())
+        
+        swal({
+            title: "¿Deseas confirmar la operación?",
+            text: `Estás por eliminar este producto`,
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          }).then((willDelete) => {
+            if (willDelete) {
+              swal(`¡Producto eliminado!`, {
+                icon: "success",
+              });
+              setDestroy(id)
+              dispatch(deleteProduct(id));
+              dispatch(getAllProducts());
+            } else {
+              swal(`¡Sigue navegando entre nuestros vinos!`);
+            }
+          });
+        
     }
     
     if(copyProducts[0] === ''){
