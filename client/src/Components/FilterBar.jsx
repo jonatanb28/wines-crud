@@ -79,6 +79,7 @@ function FilterBar() {
             <div className="div">
                 <label className="label">Precio:</label>
                 <select className="select" onChange={handleChange} name='price'>
+                    <option className="option" value="ascendent">Precio</option> 
                     <option className="option" value="ascendent">Menor a mayor valor</option> 
                     <option className="option" value="descendent">Mayor a menor valor</option> 
                 </select>
