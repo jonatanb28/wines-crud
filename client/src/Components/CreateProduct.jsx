@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux'
 import React from 'react'
 import { Link } from "react-router-dom";
 import { createProduct, getAllBrands, getAllStrains, getAllTypes } from "../Redux/Actions";
 import './inputs.css'
+import swal from 'sweetalert';
 
 export default function CreateProduct() {
 
@@ -39,7 +39,12 @@ export default function CreateProduct() {
     function handleSubmit(event){
         event.preventDefault();
         dispatch(createProduct(input))
-        alert('¡Producto creado!')
+        swal({
+            title: "¡Producto creado!",
+            text: "¡Puedes seguir creando más productos!",
+            icon: "success",
+            button: "Ok!",
+          });
         setInput({
             name: '',
             image:'',
