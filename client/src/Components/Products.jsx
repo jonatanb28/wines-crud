@@ -21,7 +21,7 @@ const Products = () => {
     },[dispatch, destroy])
  
     function handleDelete(id){
-        
+        console.log(id)
         swal({
             title: "¿Deseas confirmar la operación?",
             text: `Estás por eliminar este producto`,
