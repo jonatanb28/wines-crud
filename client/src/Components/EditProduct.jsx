@@ -124,7 +124,10 @@ const Details = () => {
                             <textarea className='textarea' placeholder={productDetail[0].description} type='text' value={wine.description} name='description' onChange={handleChange}/>
                           </div>
                           <Link to='/'><button className="my_button">Volver</button></Link>
-                          <button className="my_button" onClick={handleSubmit}>Editar</button>
+                          <div className="div">
+                            <button className="my_button" onClick={handleSubmit}>Editar</button>
+                          </div>
+                      
                       </div>
                   </div>
              
