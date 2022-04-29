@@ -20,7 +20,7 @@ const Products = () => {
         dispatch(getAllProducts()) 
     },[dispatch, destroy])
  
-    function handleDelete({id, name}){
+    function handleDelete(id){
         
         swal({
             title: "¿Deseas confirmar la operación?",
@@ -33,8 +33,8 @@ const Products = () => {
               swal(`¡Producto eliminado!`, {
                 icon: "success",
               });
-              setDestroy(name)
               dispatch(deleteProduct(id));
+              setDestroy(id)
               dispatch(getAllProducts());
             } else {
               swal(`¡Sigue navegando entre nuestros vinos!`);
