@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import {useDispatch, useSelector} from 'react-redux'
-import React from 'react'
+import React from 'react';
 import { Link } from "react-router-dom";
 import { createProduct, getAllBrands, getAllStrains, getAllTypes } from "../Redux/Actions";
 import './inputs.css'

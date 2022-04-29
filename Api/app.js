@@ -6,7 +6,7 @@ import productRoutes from './routes/routes.js';
 const app = express()
 
 app.use(cors() );
-app.use(express.json() );
+app.use(express.json());
 app.use('/wines', productRoutes)
 
 const PORT = process.env.PORT || 8000;
