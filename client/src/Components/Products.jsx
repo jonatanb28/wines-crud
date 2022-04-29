@@ -20,7 +20,7 @@ const Products = () => {
         dispatch(getAllProducts()) 
     },[dispatch, destroy])
  
-    function handleDelete(id){
+    function handleDelete({id, name}){
         
         swal({
             title: "¿Deseas confirmar la operación?",
@@ -33,7 +33,7 @@ const Products = () => {
               swal(`¡Producto eliminado!`, {
                 icon: "success",
               });
-              setDestroy((prevState)=>prevState(id))
+              setDestroy(name)
               dispatch(deleteProduct(id));
               dispatch(getAllProducts());
             } else {
@@ -78,7 +78,7 @@ const Products = () => {
     
                             <div className='btns'>
                                 <Link to={`/edit/${product.id}`}><button className='btn-update'>Editar</button></Link>
-                                <button onClick={handleDelete(product.id)} className='btn-delete'>Eliminar</button>
+                                <button onClick={handleDelete(product.id, product.name)} className='btn-delete'>Eliminar</button>
                             </div>
                         </div>
                     ))}
