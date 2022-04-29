@@ -13,15 +13,14 @@ const Products = () => {
     const dispatch = useDispatch()
     const products = useSelector(state => state.allProducts);
     const copyProducts = useSelector(state => state.copyProducts);
-
-    const [destroy, setDestroy] = useState([])
+    const deletedProducts = useSelector(state => state.deletedProducts);
 
     useEffect(()=>{
         dispatch(getAllProducts()) 
-    },[dispatch, destroy])
+    },[dispatch, deletedProducts])
  
     function handleDelete(id){
-        console.log(id)
+
         swal({
             title: "¿Deseas confirmar la operación?",
             text: `Estás por eliminar este producto`,
@@ -33,9 +32,8 @@ const Products = () => {
               swal(`¡Producto eliminado!`, {
                 icon: "success",
               });
-              setDestroy(id)
               dispatch(deleteProduct(id));
-              dispatch(getAllProducts());
+            //   dispatch(getAllProducts());
             } else {
               swal(`¡Sigue navegando entre nuestros vinos!`);
             }
