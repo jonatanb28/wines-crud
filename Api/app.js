@@ -15,9 +15,11 @@ try {
     await db.authenticate()
     console.log('conexión exitosa')
 } catch (error) {
-    console.log(`error: ${error}`)
-}
+    console.log(`error: ${error}`)}
 
-app.listen(PORT, ()=>{
-    console.log(`server running in ${PORT}`)
+db.sync({force: false}).then(()=>{
+    app.listen(PORT, ()=>{
+        console.log(`server running in ${PORT}`)
+    })
 })
+
