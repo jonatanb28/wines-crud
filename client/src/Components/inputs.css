@@ -75,6 +75,13 @@
     border-radius: 10px;
 }
 
+.textarea-c{
+    width: 300px;
+    height: 200px;
+    border: none;
+    border-radius: 10px;
+}
+
 .textarea:focus{
     border: none;
 }

@@ -67,7 +67,7 @@ const Details = () => {
                   <div key={index} className="details_container">
                       <div className="header">
                           <img className="img" src={product.image} alt='img'></img>
-                          <textarea className="textarea" placeholder={productDetail[0].name} value={wine.name} name='name' onChange={handleChange} />
+                          <textarea className="textarea-c" placeholder={productDetail[0].name} value={wine.name} name='name' onChange={handleChange} />
                          
                       </div>
 
@@ -124,10 +124,10 @@ const Details = () => {
                             <textarea className='textarea' placeholder={productDetail[0].description} type='text' value={wine.description} name='description' onChange={handleChange}/>
                           </div>
                           <div>
-                            <button className="my_button" onClick={handleSubmit}>Editar</button>
+                            <button className="my_button-c" onClick={handleSubmit}>Editar</button>
                           </div>
                           <div>
-                            <Link to='/'><button className="my_button">Volver</button></Link>
+                            <Link to='/'><button className="my_button-c">Volver</button></Link>
                           </div>
                       </div>
                   </div>
