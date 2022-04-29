@@ -33,7 +33,7 @@ const Products = () => {
               swal(`¡Producto eliminado!`, {
                 icon: "success",
               });
-              setDestroy((prevState)=>prevState)
+              setDestroy((prevState)=>prevState(id))
               dispatch(deleteProduct(id));
               dispatch(getAllProducts());
             } else {
