@@ -88,7 +88,7 @@ text-decoration: none;
     z-index:1 ;
 }
 
-.name_pokemon_card{
+.name_card{
     font-size:18px;
     color:#444444 ;
     margin-bottom:47px;
@@ -155,3 +155,6 @@ text-decoration: none;
     border-radius:5px;
 }
 
+.btn-dark{
+    box-shadow: 0px 20px 40px rgba(88, 86, 100, 0.62);
+}

@@ -69,7 +69,7 @@ const Products = () => {
                             </div> 
     
                             <div className='detail_card_container'>
-                                <h2 className='name_pokemon_card'>{product.name}</h2> 
+                                <h2 className='name_card'>{product.name}</h2> 
                                 <h3>${product.price.toLocaleString("es-AR")}</h3>
                             </div> 
     
