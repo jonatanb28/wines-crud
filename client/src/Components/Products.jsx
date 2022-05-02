@@ -46,7 +46,7 @@ const Products = () => {
             <>
                 <div className='title'>
                     <h1>Catálogo de vinos</h1>
-                    <p>Para <span className='span-title'>Aenima</span></p>
+                 
                 </div>
     
                 <div>
