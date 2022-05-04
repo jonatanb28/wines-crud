@@ -95,10 +95,10 @@ export const getProduct = async (req, res) => {
 
 export const createProduct = async (req, res) => {
 
-    const {name, image, price, typeId, strainId, brandId, description} = req.body;
+    const data = req.body;
     try {
         const product = await ProductModel.create({
-            name, image, price, description, typeId, strainId, brandId
+            data
         });
 
         res.status(200).json({
