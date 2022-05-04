@@ -23,6 +23,13 @@
     flex-direction: row;
     justify-content: center;
     margin-bottom: 4rem;
+
+    @media (min-width: 685px) {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 4rem;
+    }
 }
 
 
