@@ -114,9 +114,9 @@ export const updateProduct = async (req, res) =>{
     console.log(req.method)
     try {
         const {id} = req.params
-        const {name, description, price, strainId, typeId, brandId} = req.body;
+        const data = req.body;
         await ProductModel.update(
-            { name, description, price, strainId, typeId, brandId },
+            data,
             { where: { id } }
         )
         res.json({
