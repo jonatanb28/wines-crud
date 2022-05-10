@@ -16,7 +16,8 @@ const Details = () => {
   
   useEffect(()=>{
     dispatch(getProduct(id))
-  }, [id])
+    setWine(productDetail)
+  }, [id, productDetail])
 
   useEffect(()=>{
     dispatch(getAllTypes())
