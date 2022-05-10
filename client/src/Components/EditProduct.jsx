@@ -43,18 +43,7 @@ const Details = () => {
   function handleSubmit(event){
     event.preventDefault();
     dispatch(updateProduct(id, wine))
-    console.log(id)
-    console.log(wine)
     alert('¡Producto editado!')
-    setWine({
-        name: '',
-        image:'',
-        price: 0,
-        typeId: 0,
-        strainId: 0,
-        brandId: 0,
-        description:''
-    })
 }
 
   return(
