@@ -5,21 +5,23 @@ import { Link } from "react-router-dom";
 import {getProduct, getAllBrands, getAllStrains, getAllTypes, updateProduct } from '../Redux/Actions'
 import './editProduct.css'
 
-const Details = async () => {
+const Details = () => {
 
   const {id} = useParams();
   const dispatch = useDispatch();
-  const productDetail = await useSelector((state) => state.details)
-  console.log(productDetail)
-
   const [wine, setWine] = useState({
-    name: productDetail[0].name,
-    description: productDetail[0].description,
-    price: productDetail[0].price,
-    strainId: productDetail[0].strainId,
-    typeId: productDetail[0].typeId,
-    brandId: productDetail[0].brandId
+    name: '',
+    description: '',
+    price: 0,
+    strainId: 0,
+    typeId: 0,
+    brandId: 0
   })
+  const productDetail = useSelector((state) => {
+    setWine(state.details[0])
+    return state.details
+  })
+  console.log(productDetail)
 
   useEffect(()=>{
     dispatch(getProduct(id))
