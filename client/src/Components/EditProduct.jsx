@@ -9,23 +9,29 @@ const Details = () => {
 
   const {id} = useParams();
   const dispatch = useDispatch();
-  const [wine, setWine] = useState({
-    name: '',
-    description: '',
-    price: 0,
-    strainId: 0,
-    typeId: 0,
-    brandId: 0
-  })
-  const productDetail = useSelector((state) => {
-    setWine(state.details[0])
-    return state.details
-  })
-  console.log(productDetail)
-
+  const productDetail = useSelector((state) => state.details)
+  const tipo = useSelector((state)=>state.types)
+  const strain = useSelector((state)=>state.strains)
+  const brand = useSelector((state)=>state.brands)  
+  
   useEffect(()=>{
     dispatch(getProduct(id))
   }, [id])
+
+  useEffect(()=>{
+    dispatch(getAllTypes())
+    dispatch(getAllBrands())
+    dispatch(getAllStrains())
+  },[dispatch])
+
+  const [wine, setWine] = useState({
+    name: productDetail[0].name,
+    description: productDetail[0].description,
+    price: productDetail[0].price,
+    strainId: productDetail[0].strainId,
+    typeId: productDetail[0].typeId,
+    brandId: productDetail[0].brandId
+  })
 
   function handleChange(event){
     setWine({
@@ -33,21 +39,9 @@ const Details = () => {
   });
   }
 
-  useEffect(()=>{
-    dispatch(getAllTypes())
-    dispatch(getAllBrands())
-    dispatch(getAllStrains())
-},[dispatch])
-
-  const tipo = useSelector((state)=>state.types)
-  const strain = useSelector((state)=>state.strains)
-  const brand = useSelector((state)=>state.brands)  
-
   function handleSubmit(event){
     event.preventDefault();
     dispatch(updateProduct(id, wine))
-    console.log(id)
-    console.log(wine)
     alert('¡Producto editado!')
     setWine({
         name: '',
