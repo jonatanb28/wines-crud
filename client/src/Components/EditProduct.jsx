@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 import {getProduct, getAllBrands, getAllStrains, getAllTypes, updateProduct } from '../Redux/Actions'
 import './editProduct.css'
 
-const Details = () => {
+const Details = async () => {
 
   const {id} = useParams();
   const dispatch = useDispatch();
-  const productDetail = useSelector((state) => state.details)
+  const productDetail = await useSelector((state) => state.details)
   console.log(productDetail)
 
   const [wine, setWine] = useState({
