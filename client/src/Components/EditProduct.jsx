@@ -22,15 +22,7 @@ const Details = () => {
 
   useEffect(()=>{
     dispatch(getProduct(id))
-    setWine({
-      name: productDetail[0].name,
-      description: productDetail[0].description,
-      price: productDetail[0].price,
-      strainId: productDetail[0].strainId,
-      typeId: productDetail[0].typeId,
-      brandId:productDetail[0].brandId
-    })
-  }, [id, productDetail])
+  }, [id])
 
   function handleChange(event){
     setWine({
