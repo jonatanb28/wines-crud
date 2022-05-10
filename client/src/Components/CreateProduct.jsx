@@ -54,6 +54,9 @@ export default function CreateProduct() {
             brandId: 0,
             description:''
         })
+        document.querySelector('select[name="typeId"]').value = 0;
+        document.querySelector('select[name="brandId"]').value = 0;
+        document.querySelector('select[name="strainId"]').value = 0
     }
 
     return(
