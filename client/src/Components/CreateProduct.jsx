@@ -78,7 +78,7 @@ export default function CreateProduct() {
                 <div className="div">
                     <label className="label">Tipo:</label>
                     <select className="select" onChange={handleChange} name='typeId'>
-                    <option className="option">Tipo</option>
+                    <option className="option" value='0'>Tipo</option>
                     {tipo &&
                         tipo.map((tipo) => {
                         return (
@@ -92,7 +92,7 @@ export default function CreateProduct() {
                 <div className="div">
                     <label className="label">Variedad:</label>
                     <select className="select" onChange={handleChange} name='strainId'>
-                    <option className="option">Variedad</option>
+                    <option className="option" value='0'>Variedad</option>
                     {strain &&
                         strain.map((strain) => {
                         return (
@@ -106,7 +106,7 @@ export default function CreateProduct() {
                 <div className="div">
                     <label className="label">Familia:</label>
                     <select className="select" onChange={handleChange} name='brandId'>
-                    <option className="option">Familia</option>
+                    <option className="option" value='0'>Familia</option>
                     {brand &&
                         brand.map((brand) => {
                         return (
