@@ -7,23 +7,13 @@ import './editProduct.css'
 
 const Details = () => {
 
+  useEffect(()=>{
+    dispatch(getProduct(id))
+  }, [])
+
   const {id} = useParams();
   const dispatch = useDispatch();
   const productDetail = useSelector((state) => state.details)
-  const tipo = useSelector((state)=>state.types)
-  const strain = useSelector((state)=>state.strains)
-  const brand = useSelector((state)=>state.brands)  
-  
-  useEffect(()=>{
-    dispatch(getProduct(id))
-    setWine(productDetail)
-  }, [id, productDetail])
-
-  useEffect(()=>{
-    dispatch(getAllTypes())
-    dispatch(getAllBrands())
-    dispatch(getAllStrains())
-  },[dispatch])
 
   const [wine, setWine] = useState({
     name: productDetail[0].name,
@@ -34,11 +24,23 @@ const Details = () => {
     brandId: productDetail[0].brandId
   })
 
+  
+
   function handleChange(event){
     setWine({
       ...wine, [event.target.name]:event.target.value 
   });
   }
+
+  useEffect(()=>{
+    dispatch(getAllTypes())
+    dispatch(getAllBrands())
+    dispatch(getAllStrains())
+  },[dispatch])
+
+  const tipo = useSelector((state)=>state.types)
+  const strain = useSelector((state)=>state.strains)
+  const brand = useSelector((state)=>state.brands)  
 
   function handleSubmit(event){
     event.preventDefault();
