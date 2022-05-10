@@ -12,12 +12,12 @@ const Details = () => {
   const productDetail = useSelector((state) => state.details)
 
   const [wine, setWine] = useState({
-    name: productDetail[0].name,
-    description: productDetail[0].description,
-    price: productDetail[0].price,
-    strainId: productDetail[0].strainId,
-    typeId: productDetail[0].typeId,
-    brandId: productDetail[0].brandId
+    name: '',
+    description: '',
+    price: 0,
+    strainId: 0,
+    typeId: 0,
+    brandId: 0
   })
 
   useEffect(()=>{
@@ -28,9 +28,9 @@ const Details = () => {
       price: productDetail[0].price,
       strainId: productDetail[0].strainId,
       typeId: productDetail[0].typeId,
-      brandId: productDetail[0].brandId
+      brandId:productDetail[0].brandId
     })
-  }, [id])
+  }, [id, productDetail])
 
   function handleChange(event){
     setWine({
@@ -51,6 +51,8 @@ const Details = () => {
   function handleSubmit(event){
     event.preventDefault();
     dispatch(updateProduct(id, wine))
+    console.log(id)
+    console.log(wine)
     alert('¡Producto editado!')
     setWine({
         name: '',
