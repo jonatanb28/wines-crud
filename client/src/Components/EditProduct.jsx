@@ -12,12 +12,12 @@ const Details = () => {
   const productDetail = useSelector((state) => state.details)
 
   const [wine, setWine] = useState({
-    name: '',
-    description: '',
-    price: 0,
-    strainId: 0,
-    typeId: 0,
-    brandId: 0
+    name: productDetail[0] && productDetail[0].name,
+    description: productDetail[0].description && productDetail[0].description,
+    price: productDetail[0].price && productDetail[0].description,
+    strainId: productDetail[0].strainId && productDetail[0].description,
+    typeId: productDetail[0].typeId && productDetail[0].description,
+    brandId: productDetail[0].brandId && productDetail[0].description
   })
 
   useEffect(()=>{
