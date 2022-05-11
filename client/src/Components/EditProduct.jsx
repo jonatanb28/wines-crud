@@ -10,14 +10,15 @@ const Details = () => {
   const {id} = useParams();
   const dispatch = useDispatch();
   const productDetail = useSelector((state) => state.details)
+  console.log(productDetail)
 
   const [wine, setWine] = useState({
     name: productDetail[0] && productDetail[0].name,
-    description: productDetail[0].description && productDetail[0].description,
-    price: productDetail[0].price && productDetail[0].description,
-    strainId: productDetail[0].strainId && productDetail[0].description,
-    typeId: productDetail[0].typeId && productDetail[0].description,
-    brandId: productDetail[0].brandId && productDetail[0].description
+    description: productDetail[0] && productDetail[0].description,
+    price: productDetail[0] && productDetail[0].price,
+    strainId: productDetail[0] && productDetail[0].strainId,
+    typeId: productDetail[0] && productDetail[0].typeId,
+    brandId: productDetail[0] && productDetail[0].brandId
   })
 
   useEffect(()=>{

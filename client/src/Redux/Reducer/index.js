@@ -44,7 +44,10 @@ function reducer (state = initialState, {type, payload}) {
                     [payload.filter]: payload.value
             }}
         case 'getFilterProducts':
+            
             let Products = state.allProducts;
+            console.log(Products)
+            
             if (state.filters.type) {
                
               const filtered = [
@@ -52,6 +55,7 @@ function reducer (state = initialState, {type, payload}) {
                     product=>{
                         return product.type.name.includes(state.filters.type);
                     }
+
                 )
               ];
       
@@ -59,21 +63,26 @@ function reducer (state = initialState, {type, payload}) {
             }
 
             if (state.filters.strain) {
-               
+                
+              if(Products[0]){
                 const filtered = [
-                  ...Products.filter((product)=>product.strain.name.includes(state.filters.strain))
+                  ...Products.filter((product)=>product.strain.name === state.filters.strain)
                 ];
         
                 Products = filtered;
+              }
             }
 
             if (state.filters.brand) {
                
+              if(Products[0]){
                 const filtered = [
-                  ...Products.filter((product)=>product.brand.name.includes(state.filters.brand))
+                  ...Products.filter((product)=>product.brand.name === state.filters.brand)
                 ];
         
                 Products = filtered;
+              }
+               
             }
     
             if (state.filters.price === "ascendent") {
